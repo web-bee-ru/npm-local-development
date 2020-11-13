@@ -139,7 +139,7 @@ async function sync(cwd: string, packageName: string, packageSource: string, wat
     try {
 
         for (const file of fs.readdirSync(packageSource)) {
-            if (file === 'node_modules') continue;
+            if (file === 'node_modules' || file === '.git') continue;
             fs.symlinkSync(join(relativePath, file), join(clonedPackagePathInRootNodeModules, file));
 
         }
